@@ -1,0 +1,47 @@
+<!-- Aqui fazemos a ligação com o arquivo base.html -->
+{% extends "base.html" %}
+
+<!-- Aqui encaixamos o titulo para ser exibido no espaço que deixamos la no arquivo base.html -->
+{% block title%} Cadastro {% endblock %}
+
+
+<!-- Aqui colocamos o conteudo que será exibido no espaço do conteúdo la do arquivo base.html-->
+{% block content %}
+    <div class="row"> <!---Inicio da primeira linha-->
+        <div class="col-11"> <!--Inicio primeira coluna--->
+            <h4><strong>Alunos cadastrados</strong></h4>
+        </div>               <!--Fim primeira coluna--->
+        <div class="col-1">    <!-- <a href="#" class="btn btn-primary btn-sm">Cadastrar</a> -->       </div>
+    </div><!---Fim da primeira linha-->
+
+    <!------------Separa as linhas----------------------->
+    <div class="row"> <!--Inicio segunda linha--->
+        <table class="table">
+          <thead>
+            <tr>
+                <th scope="col">Nome:</th>
+                <th scope="col">Curso:</th>
+                <th scope="col">Turma:</th>
+                <!-- <th scope="col">Ações:</th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+          <!--Usando o for com o conceito de context do django-->
+          <!-- Aqui usamos o context for para exibir os dados do banco de dados atraves da função que criamos na view -->
+          {% for aluno in alunos %}
+            <tr>
+              <th>{{ aluno.nome }}</th>
+              <td>{{ aluno.curso }}</td>
+              <td>{{ aluno.turma }}</td>
+              <!-- <td>
+                    <a href="#" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="#" class="btn btn-danger btn-sm">Excluir</a>
+              </td> -->
+            </tr>
+          {% endfor %}
+
+          </tbody>
+        </table>
+    </div><!--Fim segunda linha--->
+{% endblock %}
