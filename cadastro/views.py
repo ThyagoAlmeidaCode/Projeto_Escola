@@ -16,6 +16,7 @@ def alunos_contato(request):
             form.save()
             return redirect('home')
     else:
+        titulo = 'Contato'
         #Informa como o formulario sera criado
         formulario = ContatoForm()
-        return render(request, 'cadastro/alunos_contato.html', {'form':formulario})
+        return render(request, 'cadastro/alunos_contato.html', {'form':formulario, 'titulo':titulo })

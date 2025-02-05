@@ -16,3 +16,9 @@ class ContatoForm(forms.ModelForm):
             'email': 'Informe seu email:',
             'mensagem': 'Digite sua mensagem:'
         }
+
+        widgets = {
+            "nome": forms.TextInput(attrs={"class": "form-control", "placeholder": "Digite seu nome"}),
+            "email": forms.EmailInput(attrs={"class": "form-control", "placeholder": "Digite seu e-mail"}),
+            "mensagem": forms.Textarea(attrs={"class": "form-control", "rows": 5, "placeholder": "Digite sua mensagem"}),
+        }
