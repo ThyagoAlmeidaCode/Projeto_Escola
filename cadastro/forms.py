@@ -17,6 +17,7 @@ class ContatoForm(forms.ModelForm):
             'mensagem': 'Digite sua mensagem:'
         }
 
+        #Utilizar css
         widgets = {
             "nome": forms.TextInput(attrs={"class": "form-control", "placeholder": "Digite seu nome"}),
             "email": forms.EmailInput(attrs={"class": "form-control", "placeholder": "Digite seu e-mail"}),
